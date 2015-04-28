@@ -1,9 +1,11 @@
 
 from setuptools import setup
 
+version = open('config/VERSION').read().strip()
+
 setup(
     name='twentyc.tmpl',
-    version=open('config/VERSION').read().rstrip(),
+    version=version,
     author='20C',
     author_email='code@20c.com',
     description='template abstraction and helper functions',
@@ -17,5 +19,7 @@ setup(
     ],
     packages=['twentyc.tmpl'],
     namespace_packages=['twentyc'],
+    download_url = 'https://github.com/20c/twentyc.tmpl/tarball/%s' % version,
+    url = 'https://github.com/20c/twentyc.tmpl',
     zip_safe=False
 )
