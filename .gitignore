@@ -1,0 +1,4 @@
+.coverage
+dist/
+*.egg-info
+.tox

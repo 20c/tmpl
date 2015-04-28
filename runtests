@@ -1,0 +1,3 @@
+
+py.test -v --cov-report term-missing  --cov twentyc.tmpl
+
