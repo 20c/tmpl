@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 ########################################################################
 
+from __future__ import print_function
+from builtins import str
+from past.builtins import basestring
+from builtins import object
 import os
 import re
 
@@ -78,9 +82,9 @@ class Context(object):
         if not out_dir:
             raise RenderError("no output directory (out_dir) set")
 
-        print self.out_dir
-        print src
-        print os.getcwd()
+        print(self.out_dir)
+        print(src)
+        print(os.getcwd())
 
         self._render_file(src, env, dest)
 
@@ -173,7 +177,7 @@ class Context(object):
 
     def dump(self, src, env):
         tmpl = self.ctx.get_template(src)
-        print tmpl.render(env)
+        print(tmpl.render(env))
 
 
 class Template(object):

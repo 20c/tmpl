@@ -1,3 +1,5 @@
+from builtins import str
+from past.builtins import basestring
 
 import filecmp
 import os.path
@@ -18,7 +20,7 @@ def assert_dircmp(dcmp):
     assert not dcmp.left_only
     assert not dcmp.right_only
 
-    for sub in dcmp.subdirs.values():
+    for sub in list(dcmp.subdirs.values()):
         assert_dircmp(sub)
 
 

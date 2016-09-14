@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 ########################################################################
 
+from __future__ import print_function
+from __future__ import absolute_import
+from past.builtins import basestring
 import os
 import re
-import context
+from . import context
 
 
 class Jinja2Template(context.Template):
@@ -95,81 +98,6 @@ class Jinja2Engine(context.Context):
         return self.engine.from_string(instr).render(env)
 
 
-class CheetahTemplate(context.Template):
-    def __init__(self, tmpl, **kwargs):
-        self.tmpl = tmpl
-        super(CheetahTemplate, self).__init__(**kwargs)
-
-    def render(self, env):
-        """
-        renders from template, return object
-        """
-        for k,v in env.items():
-          setattr(self.tmpl, k, v)
-        return self.tmpl.respond()
-
-    def load(self):
-        pass
-    def loads(self):
-        pass
-
-
-class CheetahEngine(context.Context):
-
-    """template interface class for Cheetah"""
-
-    @staticmethod
-    def can_load():
-        import imp
-
-        try:
-            imp.find_module('Cheetah')
-            return True
-
-        except ImportError:
-            return False
-
-    def __init__(self, **kwargs):
-        import Cheetah
-        import Cheetah.Template
-
-        self.tmpl_ctor = Cheetah.Template.Template
-        super(CheetahEngine, self).__init__(**kwargs)
-
-    def get_template(self, name):
-        filename = self.find_template(name)
-        if not filename:
-            raise LookupError("template not found")
-        return self.make_template(open(tmpl_str).read())
-
-    def make_template(self, tmpl_str):
-        """ makes template object from a string """
-        return CheetahTemplate(self.tmpl_ctor(source=tmpl_str))
-
-    def _render_str_to_str(self, src, env):
-        """
-        renders contents of src with env to content str
-        """
-        return self.make_template(src).render(env)
-
-    def _render(self, src, env):
-        """
-        renders src.tmpl with env to produce out_dir/src
-        """
-        engine = self.tmpl_ctor(file=self.find_template(src))
-        for k,v in env.items():
-          setattr(engine, k, v)
-
-        return engine.respond()
-
-    def _render_file(self, src, env, dest):
-        """
-        renders src.tmpl with env to produce out_dir/src
-        """
-
-        open(dest, "w").write(self._render(src, env))
-
-
 class DjangoTemplate(context.Template):
     def __init__(self, tmpl, **kwargs):
         self.tmpl = tmpl
@@ -202,16 +130,25 @@ class DjangoEngine(context.Context):
             return True
 
         except ImportError:
-            print "import error"
+            print("import error")
             return False
 
     def __init__(self, **kwargs):
         import django.template
+        import django
         from django.conf import settings
         from django.template import Template
 
         if not settings.configured:
-            settings.configure()
+            settings.configure(
+                TEMPLATES = [
+                    {
+                        'BACKEND': 
+                        'django.template.backends.django.DjangoTemplates'
+                    }
+                ]
+            )
+            django.setup()
 
         self.tmpl_ctor = Template
         super(DjangoEngine, self).__init__(**kwargs)

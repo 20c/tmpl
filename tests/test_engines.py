@@ -1,3 +1,6 @@
+from __future__ import print_function
+from builtins import str
+from builtins import object
 
 import imp
 import os
@@ -8,7 +11,7 @@ import twentyc.tmpl
 import util
 
 engines = ['DjangoEngine', 'Jinja2Engine']
-engines = ['DjangoEngine', 'CheetahEngine', 'Jinja2Engine']
+engines = ['DjangoEngine', 'Jinja2Engine']
 scenarios = ['test0']
 env0 = {
     'envname': 'env0',
@@ -43,8 +46,8 @@ class Engine(object):
         self.src_dir = os.path.join("tests", "data", "%s_%s" % (self.scenario, self.name))
         self.expected_dir = os.path.join(
             "tests", "data", "expected", "%s-%s" % (self.scenario, self.env['envname']))
-        print "src_dir=%s" % self.src_dir
-        print "expected_dir=%s" % self.expected_dir
+        print("src_dir=%s" % self.src_dir)
+        print("expected_dir=%s" % self.expected_dir)
 
     def create_raw(self, **kwargs):
         return self.engine(**kwargs)

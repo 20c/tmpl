@@ -1,9 +1,10 @@
+from __future__ import absolute_import
 
 __import__('pkg_resources').declare_namespace(__name__)
 
 import sys
 
-from engine import DjangoEngine, CheetahEngine, Jinja2Engine
+from .engine import DjangoEngine, Jinja2Engine
 
 
 def get_engine(name):

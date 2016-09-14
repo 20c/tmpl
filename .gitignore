@@ -1,3 +1,4 @@
+*.py.bak
 .coverage
 dist/
 *.egg-info
