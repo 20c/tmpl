@@ -31,7 +31,7 @@ setup(
     packages=['twentyc.tmpl'],
     download_url = 'https://github.com/20c/twentyc.tmpl/archive/{}.zip'.format(version),
     include_package_data=True,
-    url='https://github.com/20c/twenty.tmpl',
+    url='https://github.com/20c/twentyc.tmpl',
 
     install_requires=requirements,
     test_requires=test_requirements,

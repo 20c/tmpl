@@ -1,12 +1,12 @@
 
-# twenty.tmpl
+# twentyc.tmpl
 
-[![PyPI](https://img.shields.io/pypi/v/twenty.tmpl.svg?maxAge=3600)](https://pypi.python.org/pypi/twenty.tmpl)
-[![PyPI](https://img.shields.io/pypi/pyversions/twenty.tmpl.svg?maxAge=3600)](https://pypi.python.org/pypi/twenty.tmpl)
-[![Travis CI](https://img.shields.io/travis/20c/twenty.tmpl.svg?maxAge=3600)](https://travis-ci.org/20c/twenty.tmpl)
-[![Code Health](https://landscape.io/github/20c/twenty.tmpl/master/landscape.svg?style=flat)](https://landscape.io/github/20c/twenty.tmpl/master)
-[![Codecov](https://img.shields.io/codecov/c/github/20c/twenty.tmpl/master.svg?maxAge=3600)](https://codecov.io/github/20c/twenty.tmpl)
-[![Requires.io](https://img.shields.io/requires/github/20c/twenty.tmpl.svg?maxAge=3600)](https://requires.io/github/20c/twenty.tmpl/requirements)
+[![PyPI](https://img.shields.io/pypi/v/twentyc.tmpl.svg?maxAge=3600)](https://pypi.python.org/pypi/twentyc.tmpl)
+[![PyPI](https://img.shields.io/pypi/pyversions/twentyc.tmpl.svg?maxAge=3600)](https://pypi.python.org/pypi/twentyc.tmpl)
+[![Travis CI](https://img.shields.io/travis/20c/twentyc.tmpl.svg?maxAge=3600)](https://travis-ci.org/20c/twentyc.tmpl)
+[![Code Health](https://landscape.io/github/20c/twentyc.tmpl/master/landscape.svg?style=flat)](https://landscape.io/github/20c/twentyc.tmpl/master)
+[![Codecov](https://img.shields.io/codecov/c/github/20c/twentyc.tmpl/master.svg?maxAge=3600)](https://codecov.io/github/20c/twentyc.tmpl)
+[![Requires.io](https://img.shields.io/requires/github/20c/twentyc.tmpl.svg?maxAge=3600)](https://requires.io/github/20c/twentyc.tmpl/requirements)
 
 Template abstraction for using multiple template engine backends in same code.
 
