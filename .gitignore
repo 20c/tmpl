@@ -1,5 +1,9 @@
-*.py.bak
-.coverage
-dist/
+*.py[cod]
+*.egg
 *.egg-info
+.cache/
+.coverage
+.pytest_cache
 .tox
+coverage.xml
+dist/
