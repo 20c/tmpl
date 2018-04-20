@@ -1,16 +1,16 @@
-#!/usr/bin/env python
-########################################################################
-
-from __future__ import print_function
-from builtins import str
+from __future__ import (absolute_import, division, print_function)
+from builtins import (object, str)
 from past.builtins import basestring
-from builtins import object
+
 import os
 import re
 
 
-class Context(object):
+class RenderError(Exception):
+    pass
 
+
+class Context(object):
     """generic template interface class """
 
     def __init__(self, **kwargs):
@@ -58,9 +58,6 @@ class Context(object):
             if os.path.exists(tmpl_file):
                 return tmpl_file
         return None
-
-    def ake_templatsting(self, string):
-        pas
 
     def render(self, src, env=None, out_dir=None, out_file=None):
         """
@@ -186,8 +183,8 @@ class Template(object):
       #self.src = file, string, obj
       #self.ctx = Context
 
-    def render_string():
-        pass
-    def render_file():
+    def render_string(self):
         pass
 
+    def render_file(self):
+        pass

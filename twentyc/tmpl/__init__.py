@@ -4,7 +4,7 @@ __import__('pkg_resources').declare_namespace(__name__)
 
 import sys
 
-from .engine import DjangoEngine, Jinja2Engine
+from twentyc.tmpl.engine import DjangoEngine, Jinja2Engine
 
 
 def get_engine(name):
@@ -17,4 +17,3 @@ def get_engine(name):
         return globals()[name]
 
     raise KeyError("engine '%s' does not exist" % name)
-

@@ -1,18 +1,13 @@
-#!/usr/bin/env python
-########################################################################
-
-from __future__ import print_function
-from __future__ import absolute_import
+from __future__ import (absolute_import, division, print_function)
 from past.builtins import basestring
-import os
-import re
-from . import context
+
+from twentyc.tmpl import context
 
 
 class Jinja2Template(context.Template):
     def __init__(self, tmpl, **kwargs):
         self.tmpl = tmpl
-        super(Jinja2Tepmlate, self).__init__(**kwargs)
+        super(Jinja2Template, self).__init__(**kwargs)
 
     def render(self, env):
         """
@@ -43,7 +38,6 @@ class Jinja2Engine(context.Context):
             return False
 
     def __init__(self, **kwargs):
-
         import jinja2
 
         super(Jinja2Engine, self).__init__(**kwargs)
@@ -51,9 +45,9 @@ class Jinja2Engine(context.Context):
         self.engine = jinja2.Environment(loader=jinja2.FileSystemLoader(self._search_path))
         self.engine.line_statement_prefix = '.'
         self.engine.line_comment_prefix = ';.'
-        self.engine.keep_trailing_newline=True
-        self.engine.lstrip_blocks=True
-        self.engine.trim_blocks=True
+        self.engine.keep_trailing_newline = True
+        self.engine.lstrip_blocks = True
+        self.engine.trim_blocks = True
 
     @property
     def search_path(self):
@@ -141,9 +135,9 @@ class DjangoEngine(context.Context):
 
         if not settings.configured:
             settings.configure(
-                TEMPLATES = [
+                TEMPLATES=[
                     {
-                        'BACKEND': 
+                        'BACKEND':
                         'django.template.backends.django.DjangoTemplates'
                     }
                 ]
@@ -157,7 +151,7 @@ class DjangoEngine(context.Context):
         filename = self.find_template(name)
         if not filename:
             raise LookupError("template not found")
-        return self.make_template(open(tmpl_str).read())
+        return self.make_template(open(filename).read())
 
     def make_template(self, tmpl_str):
         """ makes template object from a string """
@@ -169,4 +163,3 @@ class DjangoEngine(context.Context):
         """
 
         return self.make_template(instr).render(env)
-
