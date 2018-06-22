@@ -1,7 +1,7 @@
 from __future__ import (absolute_import, division, print_function)
 from past.builtins import basestring
 
-from twentyc.tmpl import context
+from tmpl import context
 
 
 class Jinja2Template(context.Template):

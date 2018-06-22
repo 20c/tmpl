@@ -5,7 +5,7 @@ import os
 import pytest
 import sys
 
-from twentyc.tmpl.context import Context
+from tmpl.context import Context
 import util
 
 

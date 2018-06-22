@@ -7,7 +7,7 @@ import os
 import pytest
 import sys
 
-import twentyc.tmpl
+import tmpl
 import util
 
 engines = ['DjangoEngine', 'Jinja2Engine']
@@ -25,9 +25,6 @@ env1 = {
 }
 envs = [env0]
 
-#@pytest.mark.skipif(twentyc.tmpl.Jinja2Engine.can_load() != True,
-#    reason="requires jinja2")
-
 
 class Engine(object):
 
@@ -35,7 +32,7 @@ class Engine(object):
         self.name = name
         self.scenario = scenario
         self.env = env
-        self.engine = getattr(twentyc.tmpl, name, None)
+        self.engine = getattr(tmpl, name, None)
 
         if not self.engine:
             pytest.skip("class %s not found" % (name))
@@ -165,12 +162,10 @@ def test_searchpath(engine, tmpdir):
 
 
 def test_get_engine():
-        #self.engine = getattr(twentyc.tmpl, name, None)
     for each in engines:
-        assert getattr(twentyc.tmpl, each) == twentyc.tmpl.get_engine(each[:-6])
+        assert getattr(tmpl, each) == tmpl.get_engine(each[:-6])
 
 
 def test_get_engine_fail():
     with pytest.raises(KeyError):
-        twentyc.tmpl.get_engine('none')
-
+        tmpl.get_engine('none')
