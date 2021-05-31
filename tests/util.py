@@ -5,7 +5,9 @@ import os.path
 def cmpfiles(expected_dir, actual_dir, files):
     if isinstance(files, str):
         files = [files]
-    (match, mismatch, errors) = filecmp.cmpfiles(str(expected_dir), str(actual_dir), files, shallow=False)
+    (match, mismatch, errors) = filecmp.cmpfiles(
+        str(expected_dir), str(actual_dir), files, shallow=False
+    )
     assert files == match
     assert not errors
 
@@ -48,4 +50,3 @@ def test_searchpath(ctx):
 
     del ctx.search_path
     assert 0 == len(ctx.search_path)
-

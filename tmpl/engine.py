@@ -15,6 +15,7 @@ class Jinja2Template(context.Template):
 
     def load(self):
         pass
+
     def loads(self):
         pass
 
@@ -28,7 +29,7 @@ class Jinja2Engine(context.Context):
         import imp
 
         try:
-            imp.find_module('jinja2')
+            imp.find_module("jinja2")
             return True
 
         except ImportError:
@@ -39,9 +40,11 @@ class Jinja2Engine(context.Context):
 
         super(Jinja2Engine, self).__init__(**kwargs)
 
-        self.engine = jinja2.Environment(loader=jinja2.FileSystemLoader(self._search_path))
-        self.engine.line_statement_prefix = '.'
-        self.engine.line_comment_prefix = ';.'
+        self.engine = jinja2.Environment(
+            loader=jinja2.FileSystemLoader(self._search_path)
+        )
+        self.engine.line_statement_prefix = "."
+        self.engine.line_comment_prefix = ";."
         self.engine.keep_trailing_newline = True
         self.engine.lstrip_blocks = True
         self.engine.trim_blocks = True
@@ -62,16 +65,16 @@ class Jinja2Engine(context.Context):
     def search_path(self):
         self.engine.loader.searchpath = []
 
-        #self.engine.loader.searchpath = path
+        # self.engine.loader.searchpath = path
 
     def get_template(self, name):
-        """ finds template in search path
-            returns Template object
+        """finds template in search path
+        returns Template object
         """
         return Jinja2Template(Jinja2Template(self.engine.get_template(name)))
 
     def make_template(self, tmpl_str):
-        """ makes template object from a string """
+        """makes template object from a string"""
         return Jinja2Template(Template(tmpl_str))
 
     def _render(self, src, env):
@@ -104,6 +107,7 @@ class DjangoTemplate(context.Template):
 
     def load(self):
         pass
+
     def loads(self):
         pass
 
@@ -117,7 +121,7 @@ class DjangoEngine(context.Context):
         import imp
 
         try:
-            imp.find_module('django')
+            imp.find_module("django")
             return True
 
         except ImportError:
@@ -125,18 +129,15 @@ class DjangoEngine(context.Context):
             return False
 
     def __init__(self, **kwargs):
-        import django.template
         import django
+        import django.template
         from django.conf import settings
         from django.template import Template
 
         if not settings.configured:
             settings.configure(
                 TEMPLATES=[
-                    {
-                        'BACKEND':
-                        'django.template.backends.django.DjangoTemplates'
-                    }
+                    {"BACKEND": "django.template.backends.django.DjangoTemplates"}
                 ]
             )
             django.setup()
@@ -151,7 +152,7 @@ class DjangoEngine(context.Context):
         return self.make_template(open(filename).read())
 
     def make_template(self, tmpl_str):
-        """ makes template object from a string """
+        """makes template object from a string"""
         return DjangoTemplate(self.tmpl_ctor(tmpl_str))
 
     def _render_str_to_str(self, instr, env):
