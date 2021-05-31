@@ -1,6 +1,3 @@
-from builtins import str
-from past.builtins import str
-
 import filecmp
 import os.path
 
