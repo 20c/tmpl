@@ -1,5 +1,5 @@
 from __future__ import (absolute_import, division, print_function)
-from past.builtins import basestring
+from past.builtins import str
 
 from tmpl import context
 
@@ -55,7 +55,7 @@ class Jinja2Engine(context.Context):
 
     @search_path.setter
     def search_path(self, path):
-        if isinstance(path, basestring):
+        if isinstance(path, str):
             self._search_path = [path]
             self.engine.loader.searchpath = [path]
         else:

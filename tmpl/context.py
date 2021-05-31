@@ -1,6 +1,6 @@
 from __future__ import (absolute_import, division, print_function)
 from builtins import (object, str)
-from past.builtins import basestring
+from past.builtins import str
 
 import os
 import re
@@ -36,7 +36,7 @@ class Context(object):
 
     @search_path.setter
     def search_path(self, path_list):
-        if isinstance(path_list, basestring):
+        if isinstance(path_list, str):
             self._search_path = [path_list]
         else:
             self._search_path = path_list

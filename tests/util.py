@@ -1,12 +1,12 @@
 from builtins import str
-from past.builtins import basestring
+from past.builtins import str
 
 import filecmp
 import os.path
 
 
 def cmpfiles(expected_dir, actual_dir, files):
-    if isinstance(files, basestring):
+    if isinstance(files, str):
         files = [files]
     (match, mismatch, errors) = filecmp.cmpfiles(str(expected_dir), str(actual_dir), files, shallow=False)
     assert files == match
