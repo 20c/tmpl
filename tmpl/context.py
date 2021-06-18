@@ -6,7 +6,7 @@ class RenderError(Exception):
     pass
 
 
-class Context(object):
+class Context:
     """generic template interface class"""
 
     def __init__(self, **kwargs):
@@ -173,7 +173,7 @@ class Context(object):
         print(tmpl.render(env))
 
 
-class Template(object):
+class Template:
     def __init__(self, **kwargs):
         pass
 

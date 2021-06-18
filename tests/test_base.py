@@ -11,7 +11,7 @@ from tmpl.context import Context
 
 class Empty(Context):
     def __init__(self):
-        super(Empty, self).__init__()
+        super().__init__()
 
 
 def test_init():

@@ -1,4 +1,0 @@
-include LICENSE.txt
-recursive-include facsimile *.txt
-recursive-include tmpl *.py
-include facsimile/VERSION

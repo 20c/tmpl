@@ -1,18 +1,33 @@
 
-# twentyc.tmpl
+# tmpl
 
-[![PyPI](https://img.shields.io/pypi/v/twentyc.tmpl.svg?maxAge=3600)](https://pypi.python.org/pypi/twentyc.tmpl)
-[![PyPI](https://img.shields.io/pypi/pyversions/twentyc.tmpl.svg?maxAge=3600)](https://pypi.python.org/pypi/twentyc.tmpl)
-[![Travis CI](https://img.shields.io/travis/20c/twentyc.tmpl.svg?maxAge=3600)](https://travis-ci.org/20c/twentyc.tmpl)
-[![Code Health](https://landscape.io/github/20c/twentyc.tmpl/master/landscape.svg?style=flat)](https://landscape.io/github/20c/twentyc.tmpl/master)
-[![Codecov](https://img.shields.io/codecov/c/github/20c/twentyc.tmpl/master.svg?maxAge=3600)](https://codecov.io/github/20c/twentyc.tmpl)
-[![Requires.io](https://img.shields.io/requires/github/20c/twentyc.tmpl.svg?maxAge=3600)](https://requires.io/github/20c/twentyc.tmpl/requirements)
+[![PyPI](https://img.shields.io/pypi/v/tmpl.svg?maxAge=60)](https://pypi.python.org/pypi/tmpl)
+[![PyPI](https://img.shields.io/pypi/pyversions/tmpl.svg?maxAge=600)](https://pypi.python.org/pypi/tmpl)
+[![Tests](https://github.com/20c/tmpl/workflows/tests/badge.svg)](https://github.com/20c/tmpl)
+![LGTM Grade](https://img.shields.io/lgtm/grade/python/github/20c/tmpl)
+[![Codecov](https://codecov.io/gh/20c/tmpl/branch/master/graph/badge.svg?token=lxqOsemDTz)](https://codecov.io/gh/20c/tmpl)
 
 Template abstraction for using multiple template engine backends in same code.
 
-### License
+## Introduction
 
-Copyright 2016 20C, LLC
+```sh
+pip install tmpl
+```
+
+## Documentation
+
+Is lacking!
+
+
+## Changes
+
+The current change log is available at <https://github.com/20c/tmpl/blob/master/CHANGELOG.md>
+
+
+## License
+
+Copyright 2016-2021 20C, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this softare except in compliance with the License.
@@ -25,3 +40,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+

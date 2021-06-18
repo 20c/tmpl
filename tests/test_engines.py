@@ -1,7 +1,6 @@
 import imp
 import os
 import sys
-from builtins import object, str
 
 import pytest
 import util
@@ -24,7 +23,7 @@ env1 = {
 envs = [env0]
 
 
-class Engine(object):
+class Engine:
     def __init__(self, name, scenario, env):
         self.name = name
         self.scenario = scenario
@@ -37,9 +36,7 @@ class Engine(object):
         if not self.engine.can_load():
             pytest.skip("engine %s failed can_load" % (name))
 
-        self.src_dir = os.path.join(
-            "tests", "data", "{}_{}".format(self.scenario, self.name)
-        )
+        self.src_dir = os.path.join("tests", "data", f"{self.scenario}_{self.name}")
         self.expected_dir = os.path.join(
             "tests",
             "data",
