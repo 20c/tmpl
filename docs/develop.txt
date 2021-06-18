@@ -3,5 +3,3 @@
 
 
 to create a new module, only need to define __init__ and _render_string, rest will use that function.  If the engine provides enhancements for going straight to or from files, add _render_file()
-
-

@@ -1,7 +1,3 @@
-from __future__ import (absolute_import, division, print_function)
-from builtins import (object, str)
-from past.builtins import basestring
-
 import os
 import re
 
@@ -11,7 +7,7 @@ class RenderError(Exception):
 
 
 class Context(object):
-    """generic template interface class """
+    """generic template interface class"""
 
     def __init__(self, **kwargs):
         """
@@ -21,14 +17,14 @@ class Context(object):
         """
 
         self._search_path = []
-        if 'tmpl_dir' in kwargs:
-            self._search_path = [kwargs.get('tmpl_dir')]
+        if "tmpl_dir" in kwargs:
+            self._search_path = [kwargs.get("tmpl_dir")]
 
-        if 'search_path' in kwargs:
-            self._search_path = kwargs.get('search_path', [])
+        if "search_path" in kwargs:
+            self._search_path = kwargs.get("search_path", [])
 
-        self.out_dir = kwargs.get('out_dir', None)
-        self.env = kwargs.get('env', {})
+        self.out_dir = kwargs.get("out_dir", None)
+        self.env = kwargs.get("env", {})
 
     @property
     def search_path(self):
@@ -36,7 +32,7 @@ class Context(object):
 
     @search_path.setter
     def search_path(self, path_list):
-        if isinstance(path_list, basestring):
+        if isinstance(path_list, str):
             self._search_path = [path_list]
         else:
             self._search_path = path_list
@@ -45,12 +41,12 @@ class Context(object):
     def search_path(self):
         self._search_path = []
 
-# overridden if engine can handle it, otherwise we mock
-#    def get_template(self, name):
-#        filename = self.find_template(name)
-#        if not filename:
-#            raise LookupError("template not found")
-#        return filename
+    # overridden if engine can handle it, otherwise we mock
+    #    def get_template(self, name):
+    #        filename = self.find_template(name)
+    #        if not filename:
+    #            raise LookupError("template not found")
+    #        return filename
 
     def find_template(self, name):
         for tmpl_dir in self.search_path:
@@ -100,7 +96,7 @@ class Context(object):
             env = self.env
         return self._render_str_to_str(instr, env)
 
-    def render_walk(self, env=None, prefix='', skip=None, tmpl_dir=None, out_dir=None):
+    def render_walk(self, env=None, prefix="", skip=None, tmpl_dir=None, out_dir=None):
         """
         Walks a directory and recursively renders all files
 
@@ -130,11 +126,11 @@ class Context(object):
 
         generated = []
 
-        #self.debug_msg("rendering " + prefix + " from " + tmpl.tmpl_dir + " to " + tmpl.out_dir)
+        # self.debug_msg("rendering " + prefix + " from " + tmpl.tmpl_dir + " to " + tmpl.out_dir)
         for root, dirs, files in os.walk(tmpl_dir):
             rel_dir = os.path.relpath(root, tmpl_dir)
-            if rel_dir == '.':
-                rel_dir = ''
+            if rel_dir == ".":
+                rel_dir = ""
             elif skip and skip_re.search(rel_dir):
                 continue
 
@@ -143,7 +139,7 @@ class Context(object):
                 if skip and skip_re.search(file):
                     continue
 
-                #self.debug_msg("rendering from " + file)
+                # self.debug_msg("rendering from " + file)
 
                 targ_dir = os.path.join(out_dir, rel_dir)
                 if not os.path.exists(targ_dir):
@@ -151,8 +147,8 @@ class Context(object):
                 dest_file = os.path.join(targ_dir, file)
                 generated.append(dest_file)
                 env["filename"] = os.path.join(rel_dir, prefix + file)
-                #self.debug_msg("generating file " + env['filename'])
-                #self.render(os.path.join(rel_dir, file), out_file=dest_file, env=env)
+                # self.debug_msg("generating file " + env['filename'])
+                # self.render(os.path.join(rel_dir, file), out_file=dest_file, env=env)
                 self.render(os.path.join(rel_dir, file), out_file=dest_file, env=env)
 
         return generated
@@ -180,8 +176,9 @@ class Context(object):
 class Template(object):
     def __init__(self, **kwargs):
         pass
-      #self.src = file, string, obj
-      #self.ctx = Context
+
+    # self.src = file, string, obj
+    # self.ctx = Context
 
     def render_string(self):
         pass

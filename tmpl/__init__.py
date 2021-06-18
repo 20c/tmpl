@@ -1,6 +1,4 @@
-from __future__ import absolute_import
-
-__import__('pkg_resources').declare_namespace(__name__)
+__import__("pkg_resources").declare_namespace(__name__)
 
 import sys
 
@@ -12,7 +10,7 @@ def get_engine(name):
     get an engine from string (engine class without Engine)
     """
 
-    name = name.capitalize() + 'Engine'
+    name = name.capitalize() + "Engine"
     if name in globals():
         return globals()[name]
 
