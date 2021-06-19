@@ -1,6 +1,7 @@
 import imp
 import os
 import sys
+from builtins import object, str
 
 import pytest
 import util

@@ -14,6 +14,7 @@ class Empty(Context):
         super().__init__()
 
 
+
 def test_init():
     #    with pytest.raises(NotImplementedError):
     Context()
