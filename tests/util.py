@@ -1,5 +1,4 @@
 import filecmp
-import os.path
 
 
 def cmpfiles(expected_dir, actual_dir, files):

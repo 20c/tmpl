@@ -75,7 +75,8 @@ class Jinja2Engine(context.Context):
 
     def make_template(self, tmpl_str):
         """makes template object from a string"""
-        return Jinja2Template(Template(tmpl_str))
+        raise NotImplementedError()
+        # return Jinja2Template(Template(tmpl_str))
 
     def _render(self, src, env):
         """

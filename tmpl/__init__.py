@@ -1,10 +1,3 @@
-__import__("pkg_resources").declare_namespace(__name__)
-
-import sys
-
-from tmpl.engine import DjangoEngine, Jinja2Engine
-
-
 def get_engine(name):
     """
     get an engine from string (engine class without Engine)
