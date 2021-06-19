@@ -2,6 +2,8 @@ ctl:
   plugins:
     - type: changelog
       name: changelog
+    - type: version
+      name: version
 
     - type: command
       name: printenv
