@@ -4,6 +4,6 @@
 .cache/
 .coverage
 .pytest_cache
-.tox
+.tox/
 coverage.xml
 dist/

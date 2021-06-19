@@ -29,8 +29,16 @@ class Jinja2Engine(context.Context):
         import imp
 
         try:
+            import jinja2  # noqa
+
+            # TODO removing this results in
+            # E       ModuleNotFoundError: No module named 'getpass'
+            # from pytest's tmpdir
             imp.find_module("jinja2")
             return True
+
+        except ModuleNotFoundError:
+            return False
 
         except ImportError:
             return False
@@ -123,6 +131,8 @@ class DjangoEngine(context.Context):
 
         try:
             imp.find_module("django")
+            import django  # noqa
+
             return True
 
         except ImportError:

@@ -18,6 +18,10 @@ classifiers = [
   "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
+packages = [
+    { include = "tmpl", from = "src" },
+]
+
 [tool.poetry.dependencies]
 python = ">=3.6.1,<4.0"
 
@@ -26,10 +30,8 @@ python = ">=3.6.1,<4.0"
 pytest = ">=6.0.1"
 pytest-django = ">=3.8.0"
 pytest-cov = "*"
-pytest-pythonpath = "*"
 
 # lint
-bandit = "^1.6.2"
 black = {version = ">=20", allow-prereleases = true}
 isort = "^5.7.0"
 flake8 = "^3.8.4"
@@ -37,13 +39,13 @@ pre-commit = "^2.13.0"
 pyupgrade = "^2.19.4"
 
 # docs
-markdown = "*"
-markdown-include = ">=0.5,<1"
-mkdocs = ">=1.0.0,<2.0.0"
+# markdown = "*"
+# markdown-include = ">=0.5,<1"
+# mkdocs = ">=1.0.0,<2.0.0"
 
 # ctl
-ctl = "^1.0.0"
-jinja2 = "^2.11.2"
+ctl = "^1"
+jinja2 = "^2"
 
 [tool.poetry.plugins."markdown.extensions"]
 pymdgen = "pymdgen.md:Extension"
