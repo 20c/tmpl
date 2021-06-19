@@ -9,7 +9,7 @@
 
 Template abstraction for using multiple template engine backends in same code.
 
-## Introduction
+## Installation
 
 ```sh
 pip install tmpl
@@ -30,7 +30,7 @@ The current change log is available at <https://github.com/20c/tmpl/blob/master/
 Copyright 2016-2021 20C, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this softare except in compliance with the License.
+you may not use this software except in compliance with the License.
 You may obtain a copy of the License at
 
    http://www.apache.org/licenses/LICENSE-2.0
