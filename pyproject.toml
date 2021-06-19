@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "tmpl"
-repository = "https://github.com/20c/tmpl"
-version = "0.4.0.1"
+version = "1.0.0"
 description = "Template abstraction for using multiple template engine backends in same code."
+repository = "https://github.com/20c/tmpl"
+readme = "README.md"
 authors = [ "20C <code@20c.com>",]
 license = "Apache-2.0"
 classifiers = [

@@ -1,10 +1,9 @@
+# Changelog
 
-# Change log for twentyc.tmpl
 
-## [Unreleased]
-### Added
-### Fixed
-### Changed
-### Deprecated
+## Unreleased
+
+
+## 1.0.0
 ### Removed
-### Security
+- python2 support
