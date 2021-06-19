@@ -4,7 +4,7 @@ from tmpl import context
 class Jinja2Template(context.Template):
     def __init__(self, tmpl, **kwargs):
         self.tmpl = tmpl
-        super(Jinja2Template, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def render(self, env):
         """
@@ -29,8 +29,16 @@ class Jinja2Engine(context.Context):
         import imp
 
         try:
+            import jinja2  # noqa
+
+            # TODO removing this results in
+            # E       ModuleNotFoundError: No module named 'getpass'
+            # from pytest's tmpdir
             imp.find_module("jinja2")
             return True
+
+        except ModuleNotFoundError:
+            return False
 
         except ImportError:
             return False
@@ -38,7 +46,7 @@ class Jinja2Engine(context.Context):
     def __init__(self, **kwargs):
         import jinja2
 
-        super(Jinja2Engine, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self.engine = jinja2.Environment(
             loader=jinja2.FileSystemLoader(self._search_path)
@@ -75,7 +83,8 @@ class Jinja2Engine(context.Context):
 
     def make_template(self, tmpl_str):
         """makes template object from a string"""
-        return Jinja2Template(Template(tmpl_str))
+        raise NotImplementedError()
+        # return Jinja2Template(Template(tmpl_str))
 
     def _render(self, src, env):
         """
@@ -95,7 +104,7 @@ class Jinja2Engine(context.Context):
 class DjangoTemplate(context.Template):
     def __init__(self, tmpl, **kwargs):
         self.tmpl = tmpl
-        super(DjangoTemplate, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def render(self, env):
         """
@@ -122,6 +131,8 @@ class DjangoEngine(context.Context):
 
         try:
             imp.find_module("django")
+            import django  # noqa
+
             return True
 
         except ImportError:
@@ -143,7 +154,7 @@ class DjangoEngine(context.Context):
             django.setup()
 
         self.tmpl_ctor = Template
-        super(DjangoEngine, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def get_template(self, name):
         filename = self.find_template(name)

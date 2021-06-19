@@ -1,7 +1,5 @@
-import imp
 import os
 import sys
-from builtins import object, str
 
 import pytest
 import util
@@ -24,7 +22,7 @@ env1 = {
 envs = [env0]
 
 
-class Engine(object):
+class Engine:
     def __init__(self, name, scenario, env):
         self.name = name
         self.scenario = scenario
@@ -37,9 +35,7 @@ class Engine(object):
         if not self.engine.can_load():
             pytest.skip("engine %s failed can_load" % (name))
 
-        self.src_dir = os.path.join(
-            "tests", "data", "{}_{}".format(self.scenario, self.name)
-        )
+        self.src_dir = os.path.join("tests", "data", f"{self.scenario}_{self.name}")
         self.expected_dir = os.path.join(
             "tests",
             "data",
@@ -95,15 +91,9 @@ def test_init_missing(engine):
     sys.path = restore
 
 
-# def test_render_file_no_outdir(engine):
-#    engine.create_raw()
-#    eng.render('tmpl0', env0)
-#
-#    util.cmpdirs(engine.expected_dir, tmpdir)
-
 # TODO missing tests
-## render() doesn't have tmpl_dir
-## jinja2 needs tmpl for init
+# render() doesn't have tmpl_dir
+# jinja2 needs tmpl for init
 
 
 def test_init_no_tmpl_dir(engine, tmpdir):
@@ -114,9 +104,10 @@ def test_init_no_tmpl_dir(engine, tmpdir):
     util.cmpfiles(engine.expected_dir, tmpdir, "tmpl0")
 
 
-def test_get_template_noexist(engine, tmpdir):
+def test_get_template(engine, tmpdir):
     eng = engine.create(tmpdir)
     tmpl = eng.get_template("tmpl0")
+    assert tmpl
 
 
 def test_get_template_noexist(engine, tmpdir):
@@ -150,6 +141,7 @@ def test_render_file_def_env(engine, tmpdir):
 
 def test_render_walk(engine, tmpdir):
     eng = engine.create(tmpdir)
+    assert eng
 
 
 #    eng.render_walk()

@@ -1,8 +1,5 @@
-__import__("pkg_resources").declare_namespace(__name__)
-
-import sys
-
-from tmpl.engine import DjangoEngine, Jinja2Engine
+# namespace
+from tmpl.engine import DjangoEngine, Jinja2Engine  # noqa
 
 
 def get_engine(name):

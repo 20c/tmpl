@@ -1,0 +1,7 @@
+project_name: "tmpl"
+project_repo: "https://github.com/20c/tmpl"
+version: "0.4.0.1"
+project_description: "Template abstraction for using multiple template engine backends in same code."
+project_license: "Apache-2.0"
+# FIXME
+coverage_repos: "tmpl" 

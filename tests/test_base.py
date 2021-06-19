@@ -1,9 +1,3 @@
-import filecmp
-import imp
-import os
-import sys
-
-import pytest
 import util
 
 from tmpl.context import Context
@@ -11,7 +5,7 @@ from tmpl.context import Context
 
 class Empty(Context):
     def __init__(self):
-        super(Empty, self).__init__()
+        super().__init__()
 
 
 def test_init():
