@@ -84,9 +84,9 @@ class Context:
     def render_file(self):
         pass
 
-    def render_env(self, env=None):
-        if not env:
-            env = self.env
+#    def render_env(self, env=None):
+#        if not env:
+#            env = self.env
 
     def render_string(self, instr, env=None):
         """
