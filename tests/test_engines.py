@@ -2,9 +2,8 @@ import os
 import sys
 
 import pytest
-import util
-
 import tmpl
+import util
 
 engines = ["DjangoEngine", "Jinja2Engine"]
 engines = ["DjangoEngine", "Jinja2Engine"]
