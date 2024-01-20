@@ -2,7 +2,7 @@ ctl:
   plugins:
     - type: changelog
       name: changelog
-    - type: version
+    - type: semver2
       name: version
 
     - type: command
