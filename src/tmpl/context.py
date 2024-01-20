@@ -120,7 +120,6 @@ class Context:
             self.__render_walk(env, tmpl_dir, out_dir, prefix=prefix, skip=skip)
 
     def __render_walk(self, env, tmpl_dir, out_dir, prefix, skip):
-
         if skip:
             skip_re = re.compile(skip)
 
