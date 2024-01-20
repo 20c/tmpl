@@ -25,6 +25,8 @@ packages = [{ include = "tmpl", from = "src" }]
 python = "^3.8"
 
 [tool.poetry.dev-dependencies]
+# templating engines shouldn't be hard deps
+django = ">=1.6"
 jinja2 = ">=2"
 
 # testing
